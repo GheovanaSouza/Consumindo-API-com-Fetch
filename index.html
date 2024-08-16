@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Produtos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1, h2 {
+            color: #444;
+            text-align: center;
+            margin: 20px 0;
+        }
+        section {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+        section h2 {
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        input, button {
+            width: calc(100% - 20px);
+            margin: 8px auto;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            max-width: 300px;
+            display: block;
+        }
+        button {
+            background-color: #84309b;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #21867a;
+        }
+        #containerProdutos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        .produto {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            max-width: 300px;
+            text-align: center;
+        }
+        .produto img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .logo {
+            max-width: 150px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>API Produtos</h1>
+    <img src="https://fakestoreapi.com/icons/intro.svg" alt="Logo Fake Store API" class="logo" width="400px"> 
+
+    <!-- Seção de busca de produtos -->
+    <section>
+        <h2>Método GET - Pegar</h2>
+        <div class="form-group">
+            <button id="botaoBuscar">Buscar</button>
+        </div>
+        <div id="containerProdutos"></div>
+    </section>
+
+    <!-- Seção de criação de produtos -->
+    <section>
+        <h2>Método POST - Criar</h2>
+        <div class="form-group">
+            <input type="text" id="novoTituloCriar" placeholder="Título" />
+            <input type="number" id="novoPrecoCriar" placeholder="Preço" />
+            <input type="text" id="novaDescricaoCriar" placeholder="Descrição" />
+            <input type="text" id="novaImagemCriar" placeholder="Imagem URL" />
+            <input type="text" id="novaCategoriaCriar" placeholder="Categoria" />
+            <button id="botaoCriar">Criar</button>
+        </div>
+    </section>
+
+    <!-- Seção de atualização de produtos -->
+    <section>
+        <h2>Método PUT - Atualizar</h2>
+        <div class="form-group">
+            <input type="number" id="produtoId" placeholder="ID do Produto" />
+            <input type="text" id="novoTitulo" placeholder="Novo Título" />
+            <input type="number" id="novoPreco" placeholder="Novo Preço" />
+            <input type="text" id="novaDescricao" placeholder="Nova Descrição" />
+            <input type="text" id="novaImagem" placeholder="Nova Imagem URL" />
+            <input type="text" id="novaCategoria" placeholder="Nova Categoria" />
+            <button id="botaoAtualizar">Atualizar</button>
+        </div>
+    </section>
+
+    <!-- Seção de atualização parcial de produtos -->
+    <section>
+        <h2>Método PATCH - Atualizar parcialmente</h2>
+        <div class="form-group">
+            <input type="number" id="produtoIdParcial" placeholder="ID do Produto" />
+            <input type="text" id="novoTituloParcial" placeholder="Novo Título (opcional)" />
+            <input type="number" id="novoPrecoParcial" placeholder="Novo Preço (opcional)" />
+            <input type="text" id="novaDescricaoParcial" placeholder="Nova Descrição (opcional)" />
+            <input type="text" id="novaImagemParcial" placeholder="Nova Imagem URL (opcional)" />
+            <input type="text" id="novaCategoriaParcial" placeholder="Nova Categoria (opcional)" />
+            <button id="botaoAtualizarParcial">Atualizar Parcialmente</button>
+        </div>
+    </section>
+
+    <!-- Seção de exclusão de produtos -->
+    <section>
+        <h2>Método DELETE - Deletar</h2>
+        <div class="form-group">
+            <input type="number" id="excluirProdutoId" placeholder="ID do Produto" />
+            <button id="botaoExcluir">Excluir</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
